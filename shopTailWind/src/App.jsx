@@ -3,39 +3,14 @@ import {createBrowserRouter, createRoutesFromElements, Route,Link,Outlet,RouterP
 import {Home} from './Pages/home.jsx'
 import {Pay} from './Pages/pay.jsx'
 import {Confirmation} from './Pages/confirmation'
-import {useState} from 'react'
+import {Root} from './components/Navbar.jsx'
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import {fas} from '@fortawesome/free-solid-svg-icons'
 
-const Root = () => {
-  const [isOpen,setIsOpen] = useState(false);
 
-
-  const toggleOpen = () => {
-    setIsOpen(!isOpen);
-  }
-  const linksClass  = isOpen ? "": "hidden "
-  return (
-    <div>
-      <div className='flex'>
-      <nav className="relative w-full bg-gray-800 text-white" >
-        <button className='block text-white md:hidden p-4' onClick={toggleOpen}>
-        icon will go here
-        </button>
-        <ul className={`bg-gray-800 md:flex md:items-center md:w-auto ${linksClass}`}>
-        <li className='p-4'><Link to="/"> Home </Link></li>
-        <li className='p-4'><Link to="/pay"> Check Out</Link></li>
-        <li className='p-4'><Link to="/confirmation">Confirmation</Link></li>
-        </ul>
-      </nav>
-      </div>
-        <Outlet />
-    </div>)
-}
-
+// this is the homepage where we handle the path's to different pages. if you would like to add a page you would have to add a Route and go to the Navbar component and add a link as well
  function App() {
   
-
   const router = createBrowserRouter(
     createRoutesFromElements(
       <Route path='/' element={<Root />}>
