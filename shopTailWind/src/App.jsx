@@ -4,6 +4,9 @@ import {Home} from './Pages/home.jsx'
 import {Pay} from './Pages/pay.jsx'
 import {Confirmation} from './Pages/confirmation'
 import {useState} from 'react'
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
+import {fas} from '@fortawesome/free-solid-svg-icons'
+
 const Root = () => {
   const [isOpen,setIsOpen] = useState(false);
 
@@ -17,7 +20,7 @@ const Root = () => {
       <div className='flex'>
       <nav className="relative w-full bg-gray-800 text-white" >
         <button className='block text-white md:hidden p-4' onClick={toggleOpen}>
-        yo
+        icon will go here
         </button>
         <ul className={`bg-gray-800 md:flex md:items-center md:w-auto ${linksClass}`}>
         <li className='p-4'><Link to="/"> Home </Link></li>
