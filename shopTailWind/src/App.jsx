@@ -4,8 +4,7 @@ import {Home} from './Pages/home.jsx'
 import {Pay} from './Pages/pay.jsx'
 import {Confirmation} from './Pages/confirmation'
 import {Root} from './components/Navbar.jsx'
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
-import {fas} from '@fortawesome/free-solid-svg-icons'
+
 
 
 // this is the homepage where we handle the path's to different pages. if you would like to add a page you would have to add a Route and go to the Navbar component and add a link as well

@@ -10,27 +10,23 @@ export const Root = () => {
     setIsOpen(!isOpen);
   }
   const linksClass  = isOpen ? "": "hidden"
-  // const linksIcon  = !isOpen ? "block": ""
 
-  // trying to get the cart outside of the navbar to keep a count of the items
 
   return (
     <div>
       <div className='flex'>
-      <nav className="relative w-full bg-gray-800 text-white" >
-        <button className='block text-white md:hidden p-4' onClick={toggleOpen}>
-        <i className="fa-solid fa-bars fa-2x"></i>
-        </button>
+        <nav className="relative w-full bg-gray-800 text-white justify-end" >
+          <button className='block text-white md:hidden p-4' onClick={toggleOpen}>
+            <i className="fa-solid fa-bars fa-2x"></i>
+          </button>
         <ul className={`bg-gray-800 md:flex md:items-center md:w-auto ${linksClass} text-xl font-medium text-white-800`}>
-        <li className='p-4 hover:bg-gray-400'><Link to="/"> Home </Link></li>
-        <li className='p-4 hover:bg-gray-400'><Link to="/pay"> Check Out</Link></li>
-        <li className='p-4 hover:bg-gray-400'><Link to="/confirmation">Confirmation</Link></li>
-        <div className="absolute top-0 right-0 flex justify-center align-center">
-        <i className={`fa-solid fa-cart-shopping fa-2x block`}>1</i>
-        </div>
+         <li className='p-4 hover:bg-gray-400'><Link to="/pay"><i className={`fa-solid fa-cart-shopping fa-2x block`}></i></Link></li>
+          <li className='p-4 hover:bg-gray-400'><Link to="/"> Home </Link></li>
+          <li className='p-4 hover:bg-gray-400'><Link to="/confirmation">Confirmation</Link></li>
         </ul>
-      </nav>
+        </nav>
       </div>
-        <Outlet />
+        <Outlet />  
     </div>)
 }
+//  the outlet function is responsible for rendering the rest of the pages
