@@ -8,6 +8,8 @@ export const API = () => {
   const [data, setData] = useState([]);
   const [loading,setLoading] = useState(true);
   const [error,setError] = useState(null);
+  const [count,setCount] = useState(0)
+  console.log(count);
 
   useEffect(() => {
     async function fetchData() {
@@ -37,18 +39,17 @@ export const API = () => {
   return (
     <div className="grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
     {data.map((product) => (
-      <a key={product.id} href={product.description} className="group">
+      <div key={product.id} href={product.description} className="group">
         <div className="aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-w-7 xl:aspect-h-8">
           <img
             src={product.images}
-            alt={product.images}
             className="object-cover object-center hover:opacity-75 hover:scale-110"
           />
         </div>
         <h3 className="mt-4 text-sm text-gray-700">{product.category.name}</h3>
         <p className="mt-1 text-lg font-medium text-gray-900">${product.price}</p>
-        <button onClick={() => {console.log('hello')}} className='bg-gray-800 text-white p-2 rounded-md hover:bg-opacity-50'>Add to Cart</button>
-      </a>
+        <button onClick={() => setCount(count + 1)} className='bg-gray-800 text-white p-2 rounded-md hover:bg-opacity-50'>Add to Cart</button>
+      </div>
     ))}
   </div>
     )
