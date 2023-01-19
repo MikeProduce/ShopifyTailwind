@@ -1,5 +1,6 @@
 import {useState} from 'react'
 import {Link,Outlet} from 'react-router-dom'
+import { ShoppingCart } from './Shoppingcart';
 
 // this component is meant to  add new links if needed also handles how the UI of the navbar looks like. 
 export const Root = () => {
@@ -19,6 +20,7 @@ export const Root = () => {
   return (
     <div>
       <div>
+        
         <nav className="w-full bg-gray-800 text-white" >
           <button className='block text-white md:hidden p-4' onClick={toggleOpen}>
             <i className="fa-solid fa-bars fa-2x"></i>
