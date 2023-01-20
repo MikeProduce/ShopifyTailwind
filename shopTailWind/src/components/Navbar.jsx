@@ -1,6 +1,6 @@
 import {useState} from 'react'
 import {Link,Outlet} from 'react-router-dom'
-import { ShoppingCart } from './Shoppingcart';
+
 
 // this component is meant to  add new links if needed also handles how the UI of the navbar looks like. 
 export const Root = () => {
