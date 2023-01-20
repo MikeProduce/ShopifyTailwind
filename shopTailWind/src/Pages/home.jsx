@@ -18,7 +18,7 @@ export const Home = () => {
     }
     fetchData();
 }, []);
-
+// here we imported the data from the API component and can do anything we want with it. It seaves lines of code and i believe it does not have to keep fetching the data.
 
   // if (loading) {
   //   return <p>Loading...</p>}

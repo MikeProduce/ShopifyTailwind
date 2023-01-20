@@ -11,5 +11,5 @@ export const API = async () => {
            console.log(error)
            return error;
         }
-
+//This component fetches from the API and is a reusbale and can be imported in any other component/ page
 }
