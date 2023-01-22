@@ -1,11 +1,15 @@
 import {useState} from 'react'
 import {Link,Outlet} from 'react-router-dom'
+import { useDispatch, useSelector} from 'react-redux';
+
 
 
 // this component is meant to  add new links if needed also handles how the UI of the navbar looks like. 
 export const Root = () => {
+  const {products,cart,total} = useSelector((state) => state.cart)
   const [isOpen,setIsOpen] = useState(false);
   const [counter,setCount] = useState("");
+
 
 
 
@@ -28,7 +32,9 @@ export const Root = () => {
         <ul className={`bg-gray-800 md:flex  md:items-center md:w-auto ${linksClass} text-xl text-white-800`}>
           <li className='p-4 hover:bg-gray-400'><Link to="/"> Home </Link></li>
           <li className='p-4 hover:bg-gray-400'><Link to="/confirmation">Confirmation</Link></li>
-          <li className='p-4 hover:bg-gray-400 relative'><Link to="/pay"><i className={`fa-solid fa-cart-shopping fa-2x block`}><span className='absolute left-8 top-4 text-red-600 text-xl'>1</span></i></Link></li>
+          <li className='p-4 hover:bg-gray-400 relative'><Link to="/pay"><i className={`fa-solid fa-cart-shopping fa-2x block`}><span className='absolute left-8 top-4 text-red-600 text-xl'>{cart.map((item,index,key) => {
+        return <>{index}</>
+      })}</span></i></Link></li>
         </ul>
         </nav>
       </div>
