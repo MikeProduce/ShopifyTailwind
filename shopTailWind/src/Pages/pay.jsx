@@ -1,13 +1,20 @@
-import { API } from "../components/API"
+import { useDispatch, useSelector} from 'react-redux';
+import { addToCart } from '../app/cartSlice.jsx';
+
+
 
 
 
 
 export const Pay = (props) => {
+  const {products,cart,total} = useSelector((state) => state.cart)
   return (
     <div className="bg-white">
       <div className="mx-auto max-w-2xl py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
-        {/* //display the results from the form  submission // */}
+       {total}
+      {cart.map((item,index) => {
+        return <li>{item.name}</li>
+      })}
       </div>
     </div>
   )
