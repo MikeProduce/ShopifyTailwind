@@ -29,9 +29,10 @@ export const Home = () => {
   const purchaseHandler = (product) => {
     let fullDescription = product
     const itemname = fullDescription.category.name
+    console.log(itemname)
     const itemprice = fullDescription.price
     const itemImage = fullDescription.images
-    let itemObj = {itemname,itemprice};
+    let itemObj = {itemname ,itemprice };
     dispatch(addToCart(itemObj))
 
     console.log(itemImage)
