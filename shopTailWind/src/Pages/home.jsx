@@ -1,5 +1,6 @@
 import {API} from '../components/API.jsx'
 import {useEffect, useState} from 'react'
+import { createSlice } from '@reduxjs/toolkit'; 
 
 
 
@@ -8,6 +9,13 @@ import {useEffect, useState} from 'react'
 export const Home = () => {
 
   const [items, setItems] = useState([]);
+  const [itemsBought, setItemsBought] = useState([]);
+  
+  const addItem = (itemBought) => {
+    setItemsBought([...itemsBought,
+    itemBought])
+  }
+console.log(itemsBought)
   
   
   
@@ -20,7 +28,7 @@ export const Home = () => {
 }, []);
 // here we imported the data from the API component and can do anything we want with it. It seaves lines of code and i believe it does not have to keep fetching the data.
 
-  // if (loading) {
+  // if (loading) {  
   //   return <p>Loading...</p>}
   // if (error) {
   //   return <p>{error.message}</p>}
@@ -42,7 +50,7 @@ export const Home = () => {
         </div>
         <h3 className="mt-4 text-sm text-gray-700">{product.category.name}</h3>
         <p className="mt-1 text-lg font-medium text-gray-900">${product.price}</p>
-        <button  onClick={() => console.log(product)} className='bg-gray-800 text-white p-2 rounded-md hover:bg-opacity-50'>Add to Cart</button>
+        <button  onClick={() => addItem(product)} className='bg-gray-800 text-white p-2 rounded-md hover:bg-opacity-50'>Add to Cart</button>
       </div>
     ))}
   </div>

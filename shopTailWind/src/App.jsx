@@ -4,11 +4,14 @@ import {Home} from './Pages/home.jsx'
 import {Pay} from './Pages/pay.jsx'
 import {Confirmation} from './Pages/confirmation'
 import {Root} from './components/Navbar.jsx'
+import {useState} from 'react'
 
 
 
 // this is the homepage where we handle the path's to different pages. if you would like to add a page you would have to add a Route and go to the Navbar component and add a link as well
  function App() {
+
+  const [response, setResponse] = useState({})
   
   const router = createBrowserRouter(
     createRoutesFromElements(
