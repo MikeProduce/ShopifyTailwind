@@ -2,6 +2,7 @@
 import {useEffect, useState} from 'react'
 import { useDispatch, useSelector} from 'react-redux';
 import { addToCart } from '../app/cartSlice.jsx';
+import {Button} from '../components/Button.jsx';
  
 
 
@@ -12,7 +13,6 @@ export const Home = () => {
   const dispatch = useDispatch();
   //dispatch is what we are using to call redux
   const [items, setItems] = useState([]);
-
   const {products,cart,total} = useSelector((state) => state.cart)
   // this is read redux and im using it to update the state of each of these states.
   //which are the total price, what is currently in the cart 
@@ -32,12 +32,10 @@ export const Home = () => {
   //   return <p>{error.message}</p>}
   const purchaseHandler = (product) => {
     let fullDescription = product
-    console.log(fullDescription);
     const itemName = fullDescription.title
     const itemPrice = fullDescription.price
     const itemImage = fullDescription.images[0]
     let itemObj = {itemName ,itemPrice, itemImage };
-    console.log(itemObj)
     dispatch(addToCart(itemObj))
   }
 // this purchase handler is handling all the updates whenever a user decides to buy something 
@@ -58,7 +56,7 @@ export const Home = () => {
         </div>
         <h3 className="mt-4 text-sm text-gray-700">{product.title}</h3>
         <p className="mt-1 text-lg font-medium text-gray-900">${product.price}</p>
-        <button  onClick={() => purchaseHandler(product)} className='bg-gray-800 text-white p-2 rounded-md hover:bg-opacity-50'>Add to Cart</button>
+        <Button onClick={() => purchaseHandler(product)}>Add to cart</Button>
       </div>
     ))}
   </div>
