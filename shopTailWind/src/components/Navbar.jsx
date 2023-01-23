@@ -8,17 +8,13 @@ import { useDispatch, useSelector} from 'react-redux';
 export const Root = () => {
   const {products,cart,total} = useSelector((state) => state.cart)
   const [isOpen,setIsOpen] = useState(false);
-  const [counter,setCount] = useState("");
-
-
-
-
 
   const toggleOpen = () => {
     setIsOpen(!isOpen);
   }
   const linksClass  = isOpen ? "": "hidden"
-  const bigNumber = null
+  
+  const position = cart.length >= 10 ? 'left-8' : 'left-9'
 
 
   return (
@@ -32,9 +28,7 @@ export const Root = () => {
         <ul className={`bg-gray-800 md:flex  md:items-center md:w-auto ${linksClass} text-xl text-white-800`}>
           <li className='p-4 hover:bg-gray-400'><Link to="/"> Home </Link></li>
           <li className='p-4 hover:bg-gray-400'><Link to="/confirmation">Confirmation</Link></li>
-          <li className='p-4 hover:bg-gray-400 relative'><Link to="/pay"><i className={`fa-solid fa-cart-shopping fa-2x block`}><span className='absolute left-8 top-4 text-red-600 text-xl'>{cart.map((item,index,key) => {
-        return <>{index}</>
-      })}</span></i></Link></li>
+          <li className='p-4 hover:bg-gray-400 relative'><Link to="/pay"><i className={`fa-solid fa-cart-shopping fa-2x block`}><span className={`absolute ${position} top-4 text-red-600 text-base`}>{cart.length > 0 ? cart.length : null}</span></i></Link></li>
         </ul>
         </nav>
       </div>
