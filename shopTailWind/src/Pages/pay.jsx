@@ -31,7 +31,7 @@ export const Pay = () => {
        <h1 className='text-lg'>Shopping Cart</h1>
        {itemsInCart.map((item, index) => (
         <ul key={index}>
-          <li className='flex flex-wrap p-4 sm:justify-center lg:justify-center md:justify-center'>
+          <li className='flex flex-wrap p-4 sm:justify-center lg:justify-center'>
             <div className="p-2">
               <img className='w-full h-auto sm:w-1/2 lg:w-1/3' src={item.itemImage} alt="" />
             </div> 
