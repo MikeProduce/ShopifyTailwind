@@ -10,7 +10,7 @@
 
 ### Screenshot
 
-![](images/screenshot.png)
+![](images/tailwindEcommerce.png)
 
 ### Links
 
