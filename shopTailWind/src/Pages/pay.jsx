@@ -42,7 +42,8 @@ export const Pay = () => {
   return (
     <div className="bg-white">
       <div className="mx-auto max-w-2xl py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
-       <h1 className='text-lg'>Shopping Cart</h1>
+       <h1 className='text-lg font-medium'>Shopping Cart</h1>
+       <div className="border-black border-2"></div>
        {itemsInCart.map((item, index) => (
         <ul key={index}>
           <li className='flex flex-wrap p-4 sm:justify-center lg:justify-center'>
@@ -60,8 +61,9 @@ export const Pay = () => {
           </li>
         </ul>
       ))}
+      <div className="border-black border-2"></div>
+      <div className='text-lg font-medium'>Subtotal (0 Items) ${total}</div>
       </div>
-      {total}
     </div>
   )
 }
