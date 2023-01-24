@@ -27,6 +27,7 @@ export const Pay = () => {
     //here we are just returning the array so that we can map through it and display the information.
 }, []);
 
+
   const purchaseHandler = (product) => {
   let fullDescription = product
   console.log(fullDescription)
@@ -61,8 +62,9 @@ export const Pay = () => {
           </li>
         </ul>
       ))}
+      <div className={`text-lg font-medium p-6 ${itemsInCart.length === 0 ? "block" : "hidden"}`}>Your Cart is empty</div>
       <div className="border-black border-2"></div>
-      <div className='text-lg font-medium'>Subtotal (0 Items) ${total}</div>
+      <div className='text-lg font-medium'>Subtotal ({itemsInCart.length} Items) ${total}</div>
       </div>
     </div>
   )
