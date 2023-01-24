@@ -20,16 +20,29 @@ export const Root = () => {
   return (
     <div>
       <div>
-        
         <nav className="w-full bg-gray-800 text-white" >
           <button className='block text-white md:hidden p-4' onClick={toggleOpen}>
             <i className="fa-solid fa-bars fa-2x"></i>
           </button>
-        <ul className={`bg-gray-800 md:flex  md:items-center md:w-auto ${linksClass} text-xl text-white-800`}>
-          <li className='p-4 hover:bg-gray-400'><Link to="/"> Home </Link></li>
-          <li className='p-4 hover:bg-gray-400'><Link to="/confirmation">Confirmation</Link></li>
-          <li className='p-4 hover:bg-gray-400 relative'><Link to="/pay"><i className={`fa-solid fa-cart-shopping fa-2x block`}><span className={`absolute ${position} top-4 text-red-600 text-base`}>{cart.length > 0 ? cart.length : null}</span></i></Link></li>
+        <ul className={`bg-gray-800 md:flex  md:items-center md:w-auto ${linksClass} text-xl text-white-800 justify-between`}>
+          <div className='lg:flex md:flex sm:block'>  
+            <li className='p-4 hover:bg-gray-400'><Link to="/"> Home </Link></li>
+            <li className='p-4 hover:bg-gray-400'><Link to="/confirmation">Confirmation</Link></li>
+          </div>
+          <li className='p-4 hover:bg-gray-400 relative mr-4'><Link to="/pay"><i className={`fa-solid fa-cart-shopping fa-2x block`}><span className={`absolute ${position} top-4 text-red-600 text-base`}>{cart.length > 0 ? cart.length : null}</span></i></Link></li>
         </ul>
+        </nav>
+        <nav className='xs:hidden'>
+          <div class="container">
+            <div class="items-center justify-between">
+              <ul class="items-center md:flex xs:hidden">
+                <li class="text-white font-medium pl-4 pr-4"><Link to="/">Electronics</Link></li>
+                <li class="text-white pl-4 pr-4"><Link to="/">Appliances</Link></li>
+                <li class="text-white pl-4 pr-4"><Link to="/">Clothing</Link></li>
+                <li class="text-white pl-4 pr-4"><Link to="/">Other</Link></li>
+              </ul>
+            </div>
+          </div>
         </nav>
       </div>
         <Outlet />  

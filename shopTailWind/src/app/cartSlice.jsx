@@ -33,12 +33,14 @@ const cartSlice = createSlice({
       // deconstructing the itemname from the action.payload
       //the payload is whatever item was just clicked in the pay.jsx UI
       const index = state.cart.findIndex(item => item.itemName === itemName);
-      console.log(index);
       // here we are finding the index of the item that is passed from the pay.jsx page 
+      // the index variable returns an index number, and will always return the index number of the name that was sent from the UI, if the name does not exist it returns -1 
       if (index !== -1) {
         const removed = state.cart.splice(index, 1);
+        console.log(removed);
         state.total = state.total - removed[0].itemPrice;
-        // here if index !== -1 is true then we remove that current index by 1 from the array, we also remove that current item price 
+        // here if index is anything but -1 then it will remove that index number by 1,
+
     }}
   },
 })
