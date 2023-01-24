@@ -33,13 +33,12 @@ export const Root = () => {
         </ul>
         </nav>
         <nav className='xs:hidden'>
-          <div class="container">
-            <div class="items-center justify-between">
-              <ul class="items-center md:flex xs:hidden">
-                <li class="text-white font-medium pl-4 pr-4"><Link to="/">Electronics</Link></li>
-                <li class="text-white pl-4 pr-4"><Link to="/">Appliances</Link></li>
-                <li class="text-white pl-4 pr-4"><Link to="/">Clothing</Link></li>
-                <li class="text-white pl-4 pr-4"><Link to="/">Other</Link></li>
+          <div className="container">
+            <div className="items-center justify-between">
+              <ul className="items-center md:flex xs:hidden">
+                <li className="text-white font-medium pl-4 pr-4"><Link to="/Electronics">Electronics</Link></li>
+                <li className="text-white pl-4 pr-4"><Link to="/Clothing">Clothing</Link></li>
+                <li className="text-white pl-4 pr-4"><Link to="/Other">Other</Link></li>
               </ul>
             </div>
           </div>

@@ -3,7 +3,6 @@ import {createBrowserRouter, createRoutesFromElements, Route,Link,Outlet,RouterP
 import {Home} from './Pages/home.jsx'
 import {Pay} from './Pages/pay.jsx'
 import {Confirmation} from './Pages/confirmation'
-import {Appliances} from './Pages/Appliances'
 import {Clothing} from './Pages/Clothing'
 import {Other} from './Pages/Other'
 import {Electronics} from './Pages/Electronics'
@@ -23,7 +22,6 @@ import {useState} from 'react'
         <Route index element={<Home />} />
         <Route path="/pay" element={<Pay />} />
         <Route path="/confirmation" element={<Confirmation />} />
-        <Route path="/Appliances" element={<Appliances />} />
         <Route path="/Clothing" element={<Clothing />} />
         <Route path="/Other" element={<Other />} />
         <Route path="/Electronics" element={<Electronics />} />
