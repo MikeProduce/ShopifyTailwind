@@ -62,10 +62,14 @@ export const Pay = () => {
           </li>
         </ul>
       ))}
-      <div className={`text-lg font-medium p-6 ${itemsInCart.length === 0 ? "block" : "hidden"}`}>Your Cart is empty</div>
-      <div className="border-black border-2"></div>
-      <div className='text-lg font-medium'>Subtotal ({itemsInCart.length} Items) ${total}</div>
+        <div className={`text-lg font-medium p-6 ${itemsInCart.length === 0 ? "block" : "hidden"}`}>Your Cart is empty</div>
+        <div className="border-black border-2"></div>
+      <div className='flex justify-between flex-wrap mt-2'>
+        <div className='text-lg font-medium mb-2'>Subtotal ({itemsInCart.length} Items) ${total}</div>
+        <Button className="" onClick={() => console.log('hello')}>Buy Items In Cart</Button>
       </div>
+      </div>
+      
     </div>
   )
 }
