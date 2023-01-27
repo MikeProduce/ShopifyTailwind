@@ -30,7 +30,7 @@ export const Root = () => {
                 <li className='p-4 hover:bg-gray-400'><Link to="/confirmation">Confirmation</Link></li>
               </div>
               <div className='flex'>
-                <li className='p-4 hover:bg-gray-400 relative mr-4'><Link to="/pay"><i className={`fa-regular fa-user fa-2x block`}><span className={`absolute ${position} top-4 text-red-600 text-base`}>{cart.length > 0 ? cart.length : null}</span></i></Link></li>
+                <li className='p-4 hover:bg-gray-400 relative mr-4'><i className={`fa-regular fa-user fa-2x block`}></i></li>
                 <li className='p-4 hover:bg-gray-400 relative mr-4'><Link to="/pay"><i className={`fa-solid fa-cart-shopping fa-2x block`}><span className={`absolute ${position} top-4 text-red-600 text-base`}>{cart.length > 0 ? cart.length : null}</span></i></Link></li>
               </div>
             </ul>

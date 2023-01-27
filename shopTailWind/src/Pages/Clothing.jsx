@@ -35,7 +35,7 @@ export const Clothing = () => {
 // here we imported the data from the API component and can do anything we want with it. It seaves lines of code and i believe it does not have to keep fetching the data.
 const Clothes = items.filter((Clothing) => {
   const names = Clothing.category
-   return names === 'mens-shirts'
+   return ['mens-shirts','mens-shoes'].indexOf(names) !== -1;
   
 
 })
@@ -69,18 +69,18 @@ const Clothes = items.filter((Clothing) => {
     <div className="bg-white">
       <div className="mx-auto max-w-2xl py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
       <div className="grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
-    {currentPosts.map((product,key) => (
-      <div key={key} href={product.description} className="group">
-        <div className="aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-w-7 xl:aspect-h-8">
-          <img
-            src={product.images[0]}
-            className="object-contain h-49 w-96 object-center hover:opacity-75 hover:scale-110"
-          />
-        </div>
-        <h3 className="mt-4 text-sm text-gray-700">{product.title}</h3>
-        <p className="mt-1 text-lg font-medium text-gray-900">${product.price}</p>
-        <Button onClick={() => purchaseHandler(product)}>Add to cart</Button>
+    {currentPosts.map((product,index) => (
+      <div key={index} href={product.description} className="group">
+      <div className="aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-w-7 xl:aspect-h-8">
+        <img
+          src={product.thumbnail}
+          className="  mx-auto object-contain h-48 w-96 object-center hover:opacity-75 hover:scale-110"
+        />
       </div>
+      <h3 className="mt-4 text-sm text-gray-700">{product.title}</h3>
+      <p className="mt-1 text-lg font-medium text-gray-900">${product.price}</p>
+      <Button onClick={() => purchaseHandler(product)}>Add to cart</Button>
+    </div>
     ))}
   </div>
         <Pagination totalPosts={Clothes.length} postsPerPage={postsPerPage} setCurrentPage={setCurrentPage} />

@@ -31,8 +31,8 @@ export const Electronics = () => {
     }, [products])
 
     const electronics = items.filter((electronics) => {
-      const names = electronics.category
-       return names === 'smartphones' || 'laptops'
+      const category = electronics.category
+      return ['smartphones', 'laptops'].indexOf(category) !== -1;
       
 
     })

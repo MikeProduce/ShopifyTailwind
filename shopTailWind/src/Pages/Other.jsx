@@ -32,7 +32,7 @@ export const Other = () => {
 
 const Others = items.filter((Other) => {
   const names = Other.category
-   return names === 'furniture'
+   return ['furniture','lighting','motorcycle','automotive'].indexOf(names) !== -1
   
 
 })
