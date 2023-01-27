@@ -6,6 +6,7 @@ import {API} from '../components/API.jsx'
 
 async function fetchData() {
   const response = await API();
+  console.log(response);
   return response;
 }
 

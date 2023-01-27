@@ -5,8 +5,10 @@ import axios from 'axios';
 
 export const API = async () => {
         try {
-            const response = await axios.get('https://api.escuelajs.co/api/v1/products');
-            return response.data;
+            const response = await axios.get('https://dummyjson.com/products?limit=100');
+            // console.log(response.data.products)
+            return response.data.products;
+            
         } catch (error) {
            console.log(error)
            return error;

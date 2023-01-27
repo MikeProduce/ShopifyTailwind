@@ -31,8 +31,8 @@ export const Electronics = () => {
     }, [products])
 
     const electronics = items.filter((electronics) => {
-      const names = electronics.category.name
-       return names === 'Electronics'
+      const names = electronics.category
+       return names === 'smartphones' || 'laptops'
       
 
     })
@@ -73,7 +73,7 @@ export const Electronics = () => {
         <div className="aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-w-7 xl:aspect-h-8">
           <img
             src={product.images[0]}
-            className="object-cover object-center hover:opacity-75 hover:scale-110"
+            className="object-contain h-48 w-96  object-center hover:opacity-75 hover:scale-110"
           />
         </div>
         <h3 className="mt-4 text-sm text-gray-700">{product.title}</h3>

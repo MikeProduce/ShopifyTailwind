@@ -31,8 +31,8 @@ export const Other = () => {
 // here we imported the data from the API component and can do anything we want with it. It seaves lines of code and i believe it does not have to keep fetching the data.
 
 const Others = items.filter((Other) => {
-  const names = Other.category.name
-   return names === 'Others'
+  const names = Other.category
+   return names === 'furniture'
   
 
 })
@@ -66,10 +66,10 @@ const currentPosts = Others.slice(firstPostIndex, lastPostIndex);
       <div className="grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
     {currentPosts.map((product,key) => (
       <div key={key} href={product.description} className="group">
-        <div className="aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-w-7 xl:aspect-h-8">
+        <div className="aspect-w-1 aspect-h-1 overflow-hidden rounded-lg bg-gray-200 xl:aspect-w-7 xl:aspect-h-8  object-center ">
           <img
             src={product.images[0]}
-            className="object-cover object-center hover:opacity-75 hover:scale-110"
+            className="object-contain h-48 w-96  object-center hover:opacity-75 hover:scale-110"
           />
         </div>
         <h3 className="mt-4 text-sm text-gray-700">{product.title}</h3>
