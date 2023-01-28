@@ -4,6 +4,7 @@ import { useDispatch, useSelector} from 'react-redux';
 import { addToCart } from '../app/cartSlice.jsx';
 import {Button} from '../components/Button.jsx';
 import { Pagination } from '../components/Pagination.jsx';
+import { Stars } from '../components/Stars.jsx';
  
 
 
@@ -53,11 +54,6 @@ const currentPosts = items.slice(firstPostIndex, lastPostIndex);
 // example firstPostIndex = 0 , lastPostIndex = 9 
 // so in return we are only showing the items in the array 0-9
 
-
-
-
-
-
   return (
     <div className="bg-white">
       <div className="mx-auto max-w-2xl py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
@@ -71,9 +67,10 @@ const currentPosts = items.slice(firstPostIndex, lastPostIndex);
           />
         </div>
         <h3 className="mt-4 text-sm text-gray-700">{product.title} {product.brand}</h3>
-        <p className="mt-1 text-lg font-medium text-gray-900">${product.price}</p>
+        <Stars rating={Math.round(product.rating)}/>
+        <p className="mt-1 text-xl font-medium text-gray-900">${product.price}</p>
         <Button onClick={() => purchaseHandler(product)}>Add to cart</Button>
-        <p className="mt-1 text-lg font-medium text-gray-900">Left in stock: {product.stock}</p>
+        <p className="mt-1 text-md font-medium text-gray-900">Left in stock: {product.stock}</p>
       </div>
     ))}
   </div>
