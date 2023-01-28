@@ -49,7 +49,7 @@ export const Pay = () => {
         <ul key={index}>
           <li className='flex flex-wrap p-4 sm:justify-center lg:justify-center'>
             <div className="p-2 justify-center">
-              <img className='w-full h-auto sm:w-1/2 lg:w-1/2 md:w-1/2 md:mx-auto sm:mx-auto' src={item.itemImage} alt="" />
+              <img className='object-contain h-48 w-96 mx-auto object-center hover:opacity-75 hover:scale-110' src={item.itemImage} alt={item.itemName} />
             </div> 
             <div className="p-2 w-full h-auto sm:w-1/2 lg:w-1/3 md:w-1/2">
               <div>Product - {item.itemName}</div>
