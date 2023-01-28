@@ -8,6 +8,7 @@ import {Other} from './Pages/Other'
 import {Electronics} from './Pages/Electronics'
 import {Root} from './components/Navbar.jsx'
 import {useState} from 'react'
+import { Footer } from './components/Footer.jsx'
 
 
 
@@ -33,6 +34,7 @@ import {useState} from 'react'
   return (
     <div className="w-screen h-screen bg-red-300">
       <RouterProvider  router={router}/> 
+      <Footer/>
     </div>
   )
 }

@@ -4,6 +4,7 @@ import { useDispatch, useSelector} from 'react-redux';
 import { addToCart } from '../app/cartSlice.jsx';
 import {Button} from '../components/Button.jsx';
 import { Pagination } from '../components/Pagination.jsx';
+import { Stars } from '../components/Stars.jsx';
  
 
 
@@ -74,12 +75,14 @@ const Clothes = items.filter((Clothing) => {
       <div className="aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-w-7 xl:aspect-h-8">
         <img
           src={product.thumbnail}
-          className="mx-auto object-contain h-48 w-96 object-center hover:opacity-75 hover:scale-110"
+          className="object-contain h-48 w-96 mx-auto object-center hover:opacity-75 hover:scale-110"
         />
       </div>
-      <h3 className="mt-4 text-sm text-gray-700">{product.title}</h3>
-      <p className="mt-1 text-lg font-medium text-gray-900">${product.price}</p>
+      <h3 className="mt-4 text-sm text-gray-700">{product.title} {product.brand}</h3>
+      <Stars rating={Math.round(product.rating)}/>
+      <p className="mt-1 text-xl font-medium text-gray-900">${product.price}</p>
       <Button onClick={() => purchaseHandler(product)}>Add to cart</Button>
+      <p className="mt-1 text-md font-medium text-gray-900">Left in stock: {product.stock}</p>
     </div>
     ))}
   </div>

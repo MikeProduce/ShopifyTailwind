@@ -21,16 +21,16 @@ export const Pagination = ({totalPosts,postsPerPage,setCurrentPage,pageSelected}
 
   return (
     <div className='flex justify-center items-center p-4'>
-    <button onClick={handlePrevPage}>Prev</button>
+    <button className={`bg-gray-800 text-white rounded-md hover:bg-opacity-50 px-4 py-2 rounded-md text-lg px-6 py-3 mt-10`} onClick={handlePrevPage}>Prev</button>
       {
       pages.map((page,index) => {
-        return <div className='mx-2 mt-10'>
-          <button key={index} onClick={() => setCurrentPage(index + pageRange[0])} className={`bg-gray-800 text-white rounded-md hover:bg-opacity-50 px-4 py-2 rounded-md text-lg px-6 py-3 ${pageSelected === index + pageRange[0] ? "bg-gray-400" : ''}`}>{page}</button>
+        return <div key={index} className='mx-2 mt-10'>
+          <button onClick={() => setCurrentPage(index + pageRange[0])} className={`bg-gray-800 text-white rounded-md hover:bg-opacity-50 px-4 py-2 rounded-md text-lg px-6 py-3 ${pageSelected === index + pageRange[0] ? "bg-gray-400" : ''}`}>{page}</button>
         </div> 
       })
 
     }
-    <button className={`bg-gray-800 text-white rounded-md hover:bg-opacity-50 px-4 py-2 rounded-md text-lg px-6 py-3`} onClick={handleNextPage}>Next</button>
+    <button className={`bg-gray-800 text-white rounded-md hover:bg-opacity-50 px-4 py-2 rounded-md text-lg px-6 py-3 mt-10`} onClick={handleNextPage}>Next</button>
     </div>
   )
 
