@@ -12,30 +12,24 @@ export const Pay = () => {
   const dispatch = useDispatch();
   const {products,cart,total} = useSelector((state) => state.cart)
 
-  const itemsInCart = cart.reduce((acc, item) => {
+  const cartItems = cart.reduce((cartItemAccumulator, cartItem) => {
     //the parameters are an empty array and the item which represets what were getting from redux. which is the image,name,price
-    const existingItem = acc.find(i => i.itemName === item.itemName);
+    const itemInCart = cartItemAccumulator.find(accItem => accItem.itemName === cartItem.itemName);
+    console.log(itemInCart);
     //here we are using find key word to loop through the array to see if something matches.(ex: miguel === miguel)
-    if (existingItem) {
-        existingItem.quantity += 1;
+    if (itemInCart) {
+        itemInCart.quantity += 1;
     } else {
-        acc.push({...item, quantity: 1});
+        cartItemAccumulator.push({...cartItem, quantity: 1});
     }
     //this if else statement checks if the array contains the item name, if it does contain the item name then itll add +1 to the quantity else it will push that new item into the array as an object
-    console.log(acc)
-    return acc;
+    return cartItemAccumulator;
     //here we are just returning the array so that we can map through it and display the information.
 }, []);
 
 
   const purchaseHandler = (product) => {
-  let fullDescription = product
-  console.log(fullDescription)
-  const itemName = fullDescription.itemName
-  const itemPrice = fullDescription.itemPrice
-  const itemImage = fullDescription.itemImage
-  let itemObj = {itemName ,itemPrice, itemImage };
-  dispatch(removeToCart(itemObj))
+  dispatch(removeToCart(product))
 }
 
 
@@ -45,7 +39,7 @@ export const Pay = () => {
       <div className="mx-auto max-w-2xl py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
        <h1 className='text-lg font-medium'>Shopping Cart</h1>
        <div className="border-black border-2"></div>
-       {itemsInCart.map((item, index) => (
+       {cartItems.map((item, index) => (
         <ul key={index}>
           <li className='flex flex-wrap p-4 sm:justify-center lg:justify-center'>
             <div className="p-2 justify-center">
@@ -62,10 +56,10 @@ export const Pay = () => {
           </li>
         </ul>
       ))}
-        <div className={`text-lg font-medium p-6 ${itemsInCart.length === 0 ? "block" : "hidden"}`}>Your Cart is empty</div>
+        <div className={`text-lg font-medium p-6 ${cartItems.length === 0 ? "block" : "hidden"}`}>Your Cart is empty</div>
         <div className="border-black border-2"></div>
       <div className='flex justify-between flex-wrap mt-2'>
-        <div className='text-lg font-medium mb-2'>Subtotal ({itemsInCart.length} Items) ${total}</div>
+        <div className='text-lg font-medium mb-2'>Subtotal ({cartItems.length} Items) ${total}</div>
         <Button className="" onClick={() => console.log('hello')}>Buy Items In Cart</Button>
       </div>
       </div>

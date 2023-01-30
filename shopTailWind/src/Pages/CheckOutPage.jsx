@@ -10,7 +10,7 @@ import { ProductCard } from '../components/ProductCard.jsx';
 
 
 
-export const Clothing = () => {
+export const CheckOutPage = () => {
   const dispatch = useDispatch();
   //dispatch is what we are using to call redux
   const [items, setItems] = useState([]);

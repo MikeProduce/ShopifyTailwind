@@ -27,7 +27,7 @@ export const Root = () => {
             <ul className={`bg-gray-800 md:flex  md:items-center md:w-auto ${linksClass} text-xl text-white-800 justify-between`}>
               <div className='lg:flex md:flex sm:block'>  
                 <li className='p-4 hover:bg-gray-400'><Link to="/"> Home </Link></li>
-                <li className='p-4 hover:bg-gray-400'><Link to="/confirmation">Confirmation</Link></li>
+                <li className='p-4 hover:bg-gray-400'><Link to="/CheckOutPage">CheckOutPage</Link></li>
               </div>
               <div className='flex'>
                 <li className='p-4 hover:bg-gray-400 relative mr-4'><i className={`fa-regular fa-user fa-2x block`}></i></li>
