@@ -68,7 +68,7 @@ const currentPosts = Others.slice(firstPostIndex, lastPostIndex);
           <ProductCard key={index} product={product} purchaseHandler={purchaseHandler} />
         ))}
       </div>
-        <Pagination totalPosts={Others.length} postsPerPage={postsPerPage} setCurrentPage={setCurrentPage} />
+      <Pagination totalPosts={Others.length} postsPerPage={postsPerPage} setCurrentPage={setCurrentPage} pageSelected={currentPage} />
       </div>
     </div>
   )

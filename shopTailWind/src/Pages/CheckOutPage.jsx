@@ -1,79 +1,68 @@
-
-import {useEffect, useState} from 'react'
 import { useDispatch, useSelector} from 'react-redux';
-import { addToCart } from '../app/cartSlice.jsx';
-import { Pagination } from '../components/Pagination.jsx';
-import { ProductCard } from '../components/ProductCard.jsx';
- 
+import { removeToCart } from '../app/cartSlice.jsx';
+import {Button} from '../components/Button.jsx';
+import {Link,Outlet} from 'react-router-dom'
+import { Form } from '../components/Form.jsx';
+
+
+
 
 
 
 
 
 export const CheckOutPage = () => {
-  const dispatch = useDispatch();
-  //dispatch is what we are using to call redux
-  const [items, setItems] = useState([]);
-  const [currentPage,setCurrentPage] = useState(1);
-  //is the page we start on which one 
-  const [postsPerPage,setPostsperPage] = useState(8);
-  // this is the amount of items that are allowed per page 
   const {products,cart,total} = useSelector((state) => state.cart)
-  // this is read redux and im using it to update the state of each of these states.
-  //which are the total price, what is currently in the cart 
-    
 
-  
-  
-    useEffect(() => {
-      setItems(products)
-      
-    }, [products])
-
-
-
-// here we imported the data from the API component and can do anything we want with it. It seaves lines of code and i believe it does not have to keep fetching the data.
-const Clothes = items.filter((Clothing) => {
-  const names = Clothing.category
-   return ['mens-shirts','mens-shoes'].indexOf(names) !== -1;
-  
-
-})
-
-  const lastPostIndex = currentPage * postsPerPage
-  // exmaple currentpage = 1 * postsperpage = 9 which gives us 9. that is the lastPostIndex
-  const firstPostIndex = lastPostIndex - postsPerPage;
-  //example lastPostIndex = 9 - postsPerPage 9 = 0
-  const currentPosts = Clothes.slice(firstPostIndex, lastPostIndex);
-  // example firstPostIndex = 0 , lastPostIndex = 9 
-  // so in return we are only showing the items in the array 0-9
+  const cartItems = cart.reduce((cartItemAccumulator, cartItem) => {
+    //the parameters are an empty array and the item which represets what were getting from redux. which is the image,name,price
+    const itemInCart = cartItemAccumulator.find(accItem => accItem.itemName === cartItem.itemName);
+    console.log(itemInCart);
+    //here we are using find key word to loop through the array to see if something matches.(ex: miguel === miguel)
+    if (itemInCart) {
+        itemInCart.quantity += 1;
+    } else {
+        cartItemAccumulator.push({...cartItem, quantity: 1});
+    }
+    //this if else statement checks if the array contains the item name, if it does contain the item name then itll add +1 to the quantity else it will push that new item into the array as an object
+    return cartItemAccumulator;
+    //here we are just returning the array so that we can map through it and display the information.
+}, []);
 
 
-  // if (loading) {  
-  //   return <p>Loading...</p>}
-  // if (error) {
-  //   return <p>{error.message}</p>}
-  const purchaseHandler = (product) => {
-    let fullDescription = product
-    const itemName = fullDescription.title
-    const itemPrice = fullDescription.price
-    const itemImage = fullDescription.images[0]
-    let itemObj = {itemName ,itemPrice, itemImage };
-    dispatch(addToCart(itemObj))
-  }
-// this purchase handler is handling all the updates whenever a user decides to buy something 
-
-
-
+ 
   return (
     <div className="bg-white">
       <div className="mx-auto max-w-2xl py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
-        <div className="grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
-          {currentPosts.map((product,index) => (
-          <ProductCard key={index} product={product} purchaseHandler={purchaseHandler} />
-          ))}
+       <h1 className='text-lg font-medium'>Check Out Page</h1>
+       <div className="border-black border-2"></div>
+       <div className='flex mt-10 mb-10'>
+        <div className='w-1/2 overflow-auto'>
+          {cartItems.map((item, index) => (
+            <ul key={index}>
+              <li className='flex flex-wrap p-4 sm:justify-center lg:justify-center'>
+                <div className="p-2 justify-center">
+                  <img className='object-contain h-48 w-96 mx-auto object-center hover:opacity-75 hover:scale-110' src={item.itemImage} alt={item.itemName} />
+                </div> 
+                  <div className="p-2 w-full h-auto sm:w-1/2 lg:w-1/3 md:w-1/2">
+                    <div>Product - {item.itemName}</div>
+                    <div>Price - {item.itemPrice}</div>
+                    <div>Quantity:{item.quantity}</div>
+                    <div>
+                  </div> 
+                </div>
+              </li>
+            </ul>
+      ))}
         </div>
-          <Pagination totalPosts={Clothes.length} postsPerPage={postsPerPage} setCurrentPage={setCurrentPage} />
+          <div className='w-1/2'>
+            <Form />
+          </div>
+        </div>
+        <div className="border-black border-2"></div>
+      <div className='flex justify-between flex-wrap mt-2'>
+        <div className='text-lg font-medium mb-2'>Subtotal ({cartItems.length} Items) ${total}</div>
+      </div>
       </div>
     </div>
   )

@@ -1,6 +1,9 @@
 import { useDispatch, useSelector} from 'react-redux';
 import { removeToCart } from '../app/cartSlice.jsx';
 import {Button} from '../components/Button.jsx';
+import {Link,Outlet} from 'react-router-dom'
+import { Form } from 'react-router-dom';
+
 
 
 
@@ -60,10 +63,9 @@ export const Pay = () => {
         <div className="border-black border-2"></div>
       <div className='flex justify-between flex-wrap mt-2'>
         <div className='text-lg font-medium mb-2'>Subtotal ({cartItems.length} Items) ${total}</div>
-        <Button className="" onClick={() => console.log('hello')}>Buy Items In Cart</Button>
+        {cartItems.length > 0 ? (<Button><Link to="/CheckOutPage">Check Out</Link></Button>) : null}
       </div>
       </div>
-      
     </div>
   )
 }

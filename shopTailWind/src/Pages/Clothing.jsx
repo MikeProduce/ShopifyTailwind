@@ -73,7 +73,7 @@ const Clothes = items.filter((Clothing) => {
           <ProductCard key={index} product={product} purchaseHandler={purchaseHandler} />
           ))}
         </div>
-          <Pagination totalPosts={Clothes.length} postsPerPage={postsPerPage} setCurrentPage={setCurrentPage} />
+        <Pagination totalPosts={Clothes.length} postsPerPage={postsPerPage} setCurrentPage={setCurrentPage} pageSelected={currentPage} />
       </div>
     </div>
   )
