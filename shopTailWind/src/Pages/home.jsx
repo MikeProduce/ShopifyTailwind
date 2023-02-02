@@ -4,6 +4,7 @@ import { useDispatch, useSelector} from 'react-redux';
 import { addToCart } from '../app/cartSlice.jsx';
 import { Pagination } from '../components/Pagination.jsx';
 import { ProductCard } from '../components/ProductCard.jsx';
+import axios  from 'axios';
  
 
 
@@ -21,10 +22,33 @@ export const Home = () => {
   //is the page we start on which one 
   const [postsPerPage,setPostsperPage] = useState(8);
   // this is the amount of items that are allowed per page 
+  const [backEndData, setbackEndData] = useState("")
     useEffect(() => {
       setItems(products)
       
     }, [products])
+
+
+    useEffect(() => {
+      async function fetchData(){
+        try {
+          const response = await axios.get("http://localhost:5000/api");
+          return setbackEndData(response);
+        
+          
+                  
+      } catch (error) {
+         console.log(error)
+         return error;
+      }
+
+      }
+      fetchData();  
+    }, [])
+
+
+
+console.log(backEndData)
 // here we imported the data from the API component and can do anything we want with it. It seaves lines of code and i believe it does not have to keep fetching the data.
 
   // if (loading) {  
