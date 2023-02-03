@@ -1,13 +1,36 @@
-import React, { useState } from "react";
+import axios from "axios";
+import React, { useState,useEffect } from "react";
 
-export const Form = () => {
+export const Form = ({cartItems}) => {
   const [name, setName] = useState("");
   const [address, setAddress] = useState("");
   const [date, setDate] = useState("");
+  const [items, setItems] = useState([]);
+
+
+  
+  useEffect(() => {
+    setItems(cartItems); 
+    // This useEffect hook runs whenever the `cartItems` prop changes.
+  // The hook sets the state `items` to the value of `cartItems`.
+  }, [cartItems]);
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log(`Name: ${name}, Address: ${address}, Date: ${date}`);
+    //here we are submitting the form and preventing the page from refreshing
+     axios.post('http://localhost:5000/orders', {
+      name: name,
+      address: address,
+      date: date,
+      items: items.map(item => item.itemName),
+     }).then(response => {
+       // This block of code runs when the axios.post request is successful.
+      console.log(response);
+     }).catch(error => {
+      //this block of code runs when the axios.post fails
+      console.error(error);
+     })
+     
   };
 
   return (

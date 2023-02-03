@@ -5,19 +5,12 @@ import {Link,Outlet} from 'react-router-dom'
 import { Form } from '../components/Form.jsx';
 
 
-
-
-
-
-
-
 export const CheckOutPage = () => {
   const {products,cart,total} = useSelector((state) => state.cart)
 
   const cartItems = cart.reduce((cartItemAccumulator, cartItem) => {
     //the parameters are an empty array and the item which represets what were getting from redux. which is the image,name,price
     const itemInCart = cartItemAccumulator.find(accItem => accItem.itemName === cartItem.itemName);
-    console.log(itemInCart);
     //here we are using find key word to loop through the array to see if something matches.(ex: miguel === miguel)
     if (itemInCart) {
         itemInCart.quantity += 1;
@@ -28,6 +21,9 @@ export const CheckOutPage = () => {
     return cartItemAccumulator;
     //here we are just returning the array so that we can map through it and display the information.
 }, []);
+
+
+ 
 
 
  
@@ -56,7 +52,8 @@ export const CheckOutPage = () => {
       ))}
         </div>
           <div className='w-1/2'>
-            <Form />
+            <Form cartItems={cartItems}/>
+          {/* here i am passing the current items that are in a cart as a prop to the form that will be sent to the database */}
           </div>
         </div>
         <div className="border-black border-2"></div>

@@ -18,7 +18,6 @@ export const Pay = () => {
   const cartItems = cart.reduce((cartItemAccumulator, cartItem) => {
     //the parameters are an empty array and the item which represets what were getting from redux. which is the image,name,price
     const itemInCart = cartItemAccumulator.find(accItem => accItem.itemName === cartItem.itemName);
-    console.log(itemInCart);
     //here we are using find key word to loop through the array to see if something matches.(ex: miguel === miguel)
     if (itemInCart) {
         itemInCart.quantity += 1;

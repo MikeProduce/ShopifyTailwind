@@ -29,26 +29,6 @@ export const Home = () => {
     }, [products])
 
 
-    useEffect(() => {
-      async function fetchData(){
-        try {
-          const response = await axios.get("http://localhost:5000/api");
-          return setbackEndData(response);
-        
-          
-                  
-      } catch (error) {
-         console.log(error)
-         return error;
-      }
-
-      }
-      fetchData();  
-    }, [])
-
-
-
-console.log(backEndData)
 // here we imported the data from the API component and can do anything we want with it. It seaves lines of code and i believe it does not have to keep fetching the data.
 
   // if (loading) {  
