@@ -5,14 +5,13 @@ const cors = require("cors");
 const mongoose = require("mongoose");
 const connectDB = require("./config/dbConn");
 const bodyParser = require("body-parser");
-const api = require("./api/api");
+const orderRouter = require("./api/orderRouter");
 //Connect to mangoDB
 connectDB();
 
 app.use(cors());
 app.use(bodyParser.json());
-
-app.use("/orders", api);
+app.use("/", orderRouter);
 
 mongoose.connection.once("open", () => {
     console.log("connected to MangoDB");

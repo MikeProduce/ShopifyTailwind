@@ -4,7 +4,7 @@ const router = express.Router();
 const Item = require("../schemas/order");
 
 // defining a new endpoint for the API with a POST request
-router.post("/", (req, res) => {
+router.post("/orders", (req, res) => {
     // destructuring the request body to extract the values for name,address,date,items
     const { name, address, date, items } = req.body;
 
