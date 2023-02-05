@@ -7,7 +7,7 @@ import {Other} from './Pages/Other'
 import {Electronics} from './Pages/Electronics'
 import {Root} from './components/Navbar.jsx'
 import { Footer } from './components/Footer.jsx'
-import {CheckOutPage} from './Pages/CheckOutPage.jsx'
+import { BoughtItem } from './components/BoughtItem.jsx'
 
 
 
@@ -18,7 +18,6 @@ import {CheckOutPage} from './Pages/CheckOutPage.jsx'
       <Route path='/' element={<Root />}>
         <Route index element={<Home />} />
         <Route path="/pay" element={<Pay />} />
-        <Route path="/CheckOutPage" element={<CheckOutPage />} />
         <Route path="/Clothing" element={<Clothing />} />
         <Route path="/Other" element={<Other />} />
         <Route path="/Electronics" element={<Electronics />} />
@@ -27,6 +26,7 @@ import {CheckOutPage} from './Pages/CheckOutPage.jsx'
   )
   return (
     <div className="w-screen h-screen bg-red-300">
+      <BoughtItem />
       <RouterProvider  router={router}/> 
       <Footer/>
     </div>
