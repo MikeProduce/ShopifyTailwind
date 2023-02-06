@@ -1,5 +1,7 @@
 import axios from "axios";
 import React, { useState,useEffect } from "react";
+import {Link,Outlet} from 'react-router-dom'
+
 
 export const Form = ({cartItems}) => {
   const [name, setName] = useState("");
@@ -25,13 +27,17 @@ export const Form = ({cartItems}) => {
       items: items.map(item => item.itemName),
      }).then(response => {
        // This block of code runs when the axios.post request is successful.
-      console.log(response);
+      if (response) {
+        alert('you made it')
+        window.location.href = "/";
+      }
      }).catch(error => {
       //this block of code runs when the axios.post fails
       console.error(error);
      })
      
   };
+  
 
   return (
     <form className="bg-white p-6 rounded-lg border-gray-800" onSubmit={handleSubmit}>

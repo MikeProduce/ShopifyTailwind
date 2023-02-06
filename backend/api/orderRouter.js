@@ -22,7 +22,7 @@ router.post("/orders", (req, res) => {
     item.save()
         // if it is successful, send a success message to the clientf
         .then((item) => {
-            res.send("data was succesfully sent to the database");
+            res.send("Order was succesful");
         })
         .catch((err) => {
             // if there is an error, log it to the console and send a failure

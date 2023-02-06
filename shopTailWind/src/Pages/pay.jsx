@@ -13,7 +13,7 @@ import { Form } from '../components/Form.jsx';
 
 export const Pay = () => {
   const dispatch = useDispatch();
-  const {products,cart,total} = useSelector((state) => state.cart)
+  const {cart,total} = useSelector((state) => state.cart)
 
   const cartItems = cart.reduce((cartItemAccumulator, cartItem) => {
     //the parameters are an empty array and the item which represets what were getting from redux. which is the image,name,price
@@ -33,6 +33,7 @@ export const Pay = () => {
   const purchaseHandler = (product) => {
   dispatch(removeToCart(product))
 }
+
 
 
  
@@ -63,7 +64,7 @@ export const Pay = () => {
       <div className='flex justify-between flex-wrap mt-2'>
         <div className='text-lg font-medium mb-2'>Subtotal ({cartItems.length} Items) ${total}</div>            
       </div>
-      {cartItems.length > 0 ? (<Form cartItems={cartItems}/>) : null}
+      {cartItems.length > 0 ? (<Form cartItems={cartItems} />) : null}
       </div>
     </div>
   )

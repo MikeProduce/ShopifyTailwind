@@ -13,6 +13,15 @@ app.use(cors());
 app.use(bodyParser.json());
 app.use("/", orderRouter);
 
+fetch("http://localhost:5000/orders")
+    .then((response) => response.json())
+    .then((data) => {
+        console.log(data);
+    })
+    .catch((error) => {
+        console.error(error);
+    });
+
 mongoose.connection.once("open", () => {
     console.log("connected to MangoDB");
     app.listen(5000, () => {
