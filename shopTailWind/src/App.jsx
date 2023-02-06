@@ -1,6 +1,6 @@
 import React from 'react'
 import {createBrowserRouter, createRoutesFromElements, Route,Link,Outlet,RouterProvider} from 'react-router-dom'
-import {Home} from './Pages/home.jsx'
+import {Home} from './Pages/Home.jsx'
 import {Pay} from './Pages/pay.jsx'
 import {Clothing} from './Pages/Clothing'
 import {Other} from './Pages/Other'
@@ -17,7 +17,7 @@ import { BoughtItem } from './components/BoughtItem.jsx'
     createRoutesFromElements(
       <Route path='/' element={<Root />}>
         <Route index element={<Home />} />
-        <Route path="/pay" element={<Pay />} />
+        <Route path="/Pay" element={<Pay />} />
         <Route path="/Clothing" element={<Clothing />} />
         <Route path="/Other" element={<Other />} />
         <Route path="/Electronics" element={<Electronics />} />

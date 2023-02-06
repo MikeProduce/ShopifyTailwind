@@ -1,7 +1,6 @@
 import { useDispatch, useSelector} from 'react-redux';
 import { removeToCart } from '../app/cartSlice.jsx';
 import {Button} from '../components/Button.jsx';
-import {Link,Outlet} from 'react-router-dom'
 import { Form } from '../components/Form.jsx';
 
 
