@@ -8,6 +8,7 @@ import {Electronics} from './Pages/Electronics'
 import {Root} from './components/Navbar.jsx'
 import { Footer } from './components/Footer.jsx'
 import { BoughtItem } from './components/BoughtItem.jsx'
+import { CheckOrder } from './Pages/CheckOrder.jsx'
 
 
 
@@ -19,6 +20,7 @@ import { BoughtItem } from './components/BoughtItem.jsx'
         <Route index element={<Home />} />
         <Route path="/Pay" element={<Pay />} />
         <Route path="/Clothing" element={<Clothing />} />
+        <Route path="/CheckOrder" element={<CheckOrder />} />
         <Route path="/Other" element={<Other />} />
         <Route path="/Electronics" element={<Electronics />} />
       </Route>
