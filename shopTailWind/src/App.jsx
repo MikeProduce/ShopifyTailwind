@@ -5,7 +5,7 @@ import {Pay} from './Pages/pay.jsx'
 import {Clothing} from './Pages/Clothing'
 import {Other} from './Pages/Other'
 import {Electronics} from './Pages/Electronics'
-import {Root} from './components/Navbar.jsx'
+import {Navbar} from './components/Navbar.jsx'
 import { Footer } from './components/Footer.jsx'
 import { BoughtItem } from './components/BoughtItem.jsx'
 import { CheckOrder } from './Pages/CheckOrder.jsx'
@@ -16,7 +16,7 @@ import { CheckOrder } from './Pages/CheckOrder.jsx'
  function App() {  
   const router = createBrowserRouter(
     createRoutesFromElements(
-      <Route path='/' element={<Root />}>
+      <Route path='/' element={<Navbar />}>
         <Route index element={<Home />} />
         <Route path="/Pay" element={<Pay />} />
         <Route path="/Clothing" element={<Clothing />} />

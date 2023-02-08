@@ -1,6 +1,7 @@
 import {useState} from 'react'
 import {Link,Outlet} from 'react-router-dom'
 import { useDispatch, useSelector} from 'react-redux';
+import { SearchBar } from './SearchBar'
 
 
 
@@ -26,6 +27,7 @@ export const Root = () => {
           <button className='block text-white md:hidden p-4' onClick={toggleOpen}>
             <i className="fa-solid fa-bars fa-2x"></i>
           </button>
+            <SearchBar / >
           <ul className='flex bg-gray-800 md:flex  md:items-center md:w-auto text-xl text-white-800 justify-between'>
                 <li className='p-4 hover:bg-gray-400 relative mr-4'><Link to="/CheckOrder"><i className={`fa-regular fa-user fa-2x block`}></i></Link></li>
                 <li className='p-4 hover:bg-gray-400 relative mr-4'><Link to="/pay"><i className={`fa-solid fa-cart-shopping fa-2x block`}><span className={`absolute ${position} top-4 text-red-600 text-base`}>{cart.length > 0 ? cart.length : null}</span></i></Link></li>
