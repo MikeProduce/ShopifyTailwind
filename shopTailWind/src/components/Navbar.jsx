@@ -6,8 +6,9 @@ import { SearchBar } from './SearchBar'
 
 
 // this component is meant to  add new links if needed also handles how the UI of the navbar looks like. 
-export const Root = () => {
-  const {cart} = useSelector((state) => state.cart)
+export const Navbar = () => {
+  const {cart,products} = useSelector((state) => state.cart)
+  console.log(products);
   const [isOpen,setIsOpen] = useState(false);
 
   const toggleOpen = () => {
@@ -18,7 +19,7 @@ export const Root = () => {
   const position = cart.length >= 10 ? 'left-8' : 'left-9'
   // I was having trouble with the way the numbers fit into the icon so i have to change the position its in for specific numbers
 
-
+ 
   return (
     <div>
       <div>
@@ -27,7 +28,6 @@ export const Root = () => {
           <button className='block text-white md:hidden p-4' onClick={toggleOpen}>
             <i className="fa-solid fa-bars fa-2x"></i>
           </button>
-            <SearchBar / >
           <ul className='flex bg-gray-800 md:flex  md:items-center md:w-auto text-xl text-white-800 justify-between'>
                 <li className='p-4 hover:bg-gray-400 relative mr-4'><Link to="/CheckOrder"><i className={`fa-regular fa-user fa-2x block`}></i></Link></li>
                 <li className='p-4 hover:bg-gray-400 relative mr-4'><Link to="/pay"><i className={`fa-solid fa-cart-shopping fa-2x block`}><span className={`absolute ${position} top-4 text-red-600 text-base`}>{cart.length > 0 ? cart.length : null}</span></i></Link></li>
@@ -39,6 +39,7 @@ export const Root = () => {
                 <li className='p-4 hover:bg-gray-400'><Link to="/Electronics">Electronics</Link></li>
                 <li className='p-4 hover:bg-gray-400'><Link to="/Clothing">Clothing</Link></li>
                 <li className='p-4 hover:bg-gray-400'><Link to="/Other">Other</Link></li>
+                <SearchBar />
               </div>
             </ul>
         </nav>
