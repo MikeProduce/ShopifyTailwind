@@ -24,7 +24,7 @@ import { CheckOrder } from './Pages/CheckOrder.jsx'
         <Route path="/Other" element={<Other />} />
         <Route path="/Electronics" element={<Electronics />} />
       </Route>
-    )
+    ) 
   )
   return (
     <div className="w-screen h-screen bg-red-300">

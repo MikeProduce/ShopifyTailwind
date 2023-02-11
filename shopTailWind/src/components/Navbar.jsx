@@ -1,14 +1,13 @@
 import {useState} from 'react'
 import {Link,Outlet} from 'react-router-dom'
 import { useDispatch, useSelector} from 'react-redux';
-import { SearchBar } from './SearchBar'
+
 
 
 
 // this component is meant to  add new links if needed also handles how the UI of the navbar looks like. 
 export const Navbar = () => {
   const {cart,products} = useSelector((state) => state.cart)
-  console.log(products);
   const [isOpen,setIsOpen] = useState(false);
 
   const toggleOpen = () => {
@@ -39,7 +38,6 @@ export const Navbar = () => {
                 <li className='p-4 hover:bg-gray-400'><Link to="/Electronics">Electronics</Link></li>
                 <li className='p-4 hover:bg-gray-400'><Link to="/Clothing">Clothing</Link></li>
                 <li className='p-4 hover:bg-gray-400'><Link to="/Other">Other</Link></li>
-                <SearchBar />
               </div>
             </ul>
         </nav>
