@@ -20,7 +20,7 @@ export const Form = ({cartItems}) => {
   const handleSubmit = (event) => {
     event.preventDefault();
     //here we are submitting the form and preventing the page from refreshing
-     axios.post('http://localhost:5000/orders', {
+     axios.post('http://localhost:5500/orders', {
       name: name,
       address: address,
       date: date,

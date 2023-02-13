@@ -20,15 +20,18 @@ export const Search = ({ products, setFilteredProducts }) => {
   // once we have some change in the search bar the products.filter will take the input
  //and only return the products that contain those characters
   return (
-    <div className="flex justify-end mb-4">
-      <input
-        type="text"
-        placeholder="Search for products"
-        className="text-black rounded-lg w-full py-1 px-1.5 mx-4 border-2 border-black border-solid "
-        value={searchTerm}
-        onChange={handleSearch}
-      />
+    <div className="mb-4">
+      <label htmlFor="search" className=''>Search For Your Product</label>
+        <input
+          id="search"
+          type="text"
+          placeholder="Search for products"
+          className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-gray-800"
+          value={searchTerm}
+          onChange={handleSearch}
+        />
     </div>
+
   );
 };
 
