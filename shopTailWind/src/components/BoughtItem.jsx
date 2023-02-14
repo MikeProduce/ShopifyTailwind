@@ -5,11 +5,14 @@ import { useEffect, useState } from 'react';
 export const BoughtItem = () => {
   const {cart} = useSelector((state) => state.cart);
   const [items, setItems] = useState('');
+  const [message, setMessage] = useState('');
   const [showMessage, setShowMessage] = useState(false);
+  const [prevCartLength, setPrevCartLength] = useState(cart.length);
 
   useEffect(() => {
+    setPrevCartLength(cart.length);
     const itemAdded = function() {
-      if (cart.length >= 1) {
+      if (cart.length >= 0) {
         // if the items in the cart length equals 1 or greater then run this if statement
         setItems(cart.map((item) => item.itemName).slice(-1)[0]);
         // the map function loops through the array and gets the name of every item and then the slice method finds the last itemName
@@ -23,7 +26,18 @@ export const BoughtItem = () => {
         // 1.5 seconds it sets it to false again.
       }
     };
-    itemAdded();
+
+    if (cart.length > prevCartLength){
+      setMessage(
+        'item has been imported into your cart'
+      )
+      itemAdded();
+    } else if (cart.length < prevCartLength){
+      setMessage('the item was removed from the cart')
+      itemAdded();
+    }
+ 
+    
   }, [cart]);
   // this useEffect just updates everytime the cart item is changed 
 
@@ -32,7 +46,7 @@ export const BoughtItem = () => {
       <div
         className={`${showMessage ? 'slide-in' : 'slide-out'} fixed top-0 z-40 bg-red-300 w-screen text-center`}
       >
-      {items} was added to your cart
+      {items} {message}
       </div>
     </div>
   );

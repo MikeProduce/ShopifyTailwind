@@ -31,7 +31,6 @@ export const Search = ({ products, setFilteredProducts }) => {
           onChange={handleSearch}
         />
     </div>
-
   );
 };
 

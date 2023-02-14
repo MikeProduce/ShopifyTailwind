@@ -1,5 +1,5 @@
 import { useDispatch, useSelector} from 'react-redux';
-import { removeToCart } from '../app/cartSlice.jsx';
+import { addToCart, removeToCart } from '../app/cartSlice.jsx';
 import {Button} from '../components/Button.jsx';
 import { Form } from '../components/Form.jsx';
 
@@ -33,6 +33,9 @@ export const Pay = () => {
   const purchaseHandler = (product) => {
   dispatch(removeToCart(product))
 }
+const AddPurchases = (product) => {
+  dispatch(addToCart(product))
+}
 
 
 
@@ -52,8 +55,9 @@ export const Pay = () => {
               <div>Product - {item.itemName}</div>
               <div>Price - {item.itemPrice}</div>
               <div>Quantity:{item.quantity}</div>
-              <div>
+              <div className='flex space-x-4'>
                 <Button onClick={() => purchaseHandler(item)}>Remove from cart</Button>
+                <Button onClick={() => AddPurchases(item)}>Add to cart</Button>
               </div> 
             </div>
           </li>

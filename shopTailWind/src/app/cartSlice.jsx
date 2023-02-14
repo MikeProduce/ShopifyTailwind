@@ -38,7 +38,6 @@ const cartSlice = createSlice({
       // the index variable returns an index number, and will always return the index number of the name that was sent from the UI, if the name does not exist it returns -1 
       if (index !== -1) {
         const removed = state.cart.splice(index, 1);
-        console.log(removed);
         state.total = state.total - removed[0].itemPrice;
         // here if index is anything but -1 then it will remove that index number by 1,
 
