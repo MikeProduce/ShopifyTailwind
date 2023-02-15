@@ -1,17 +1,25 @@
 const express = require("express");
+const app = express();
 const router = express.Router();
 const orders = require("../schemas/order");
 
-router.get('/orders', async (request, response) => {
-    const order = await orders.find({_id: 
-        '63ddd47e851cee6506092988' });
+router.post("/", async (req, res) => {
+  const user = req.body.ID;
+  console.log(user);
+  
+  try {
+    const order = await orders.findOne({_id: user});
+    res.send(order);
+  } catch (error) {
+    console.error(error);
+    res.status(500).send(error);
+  }
+});
 
-    try{
-        response.send(order);
-    } catch (error) {
-        response.status(500).send(error);
-    }
-})
+app.use("/orders", router);
 
-module.exports = router;
+module.exports = app;
+
+
+
 
