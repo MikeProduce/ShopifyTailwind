@@ -9,5 +9,5 @@ const ordersSchema = new Schema({
     items: [String],
 });
 // here we are defining what the schemas will look like for the orders
-
-module.exports = mongoose.model("item", ordersSchema);
+const orders = mongoose.model("item", ordersSchema);
+module.exports =  orders;
