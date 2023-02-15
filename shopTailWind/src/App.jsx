@@ -27,7 +27,7 @@ import { CheckOrder } from './Pages/CheckOrder.jsx'
     ) 
   )
   return (
-    <div className="w-screen h-screen bg-red-300 w-full overflow-x-hidden ">
+    <div className="w-screen bg-red-300 w-full overflow-x-hidden ">
       <BoughtItem />
       <RouterProvider  router={router}/> 
       <Footer/>

@@ -18,7 +18,7 @@ export const CheckOrder = () => {
 
 
   return (
-    <div className="min-h-full items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+    <div className="h-screen items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
       <div className="w-full max-w-md space-y-8">
       <form className="mt-8 space-y-6" action="#" method="POST">
           <div className="-space-y-px rounded-md shadow-sm">
