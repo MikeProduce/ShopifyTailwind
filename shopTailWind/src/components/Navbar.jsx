@@ -24,20 +24,20 @@ export const Navbar = () => {
       <div>
         <nav className="w-full bg-gray-800 text-white flex flex-col md:flex-row-reverse justify-between" >
         <div className='flex justify-between'>
-          <button className='block text-white md:hidden p-4' onClick={toggleOpen}>
+          <button className='block text-white md:hidden p-4 hover:scale-110' onClick={toggleOpen}>
             <i className="fa-solid fa-bars fa-2x"></i>
           </button>
           <ul className='flex bg-gray-800 md:flex  md:items-center md:w-auto text-xl text-white-800 justify-between'>
                 <li className='p-4 hover:bg-gray-400 relative'><Link to="/CheckOrder"><i className={`fa-regular fa-user fa-2x block`}></i></Link></li>
-                <li className='p-4 hover:bg-gray-400 relative'><Link to="/pay"><i className={`fa-solid fa-cart-shopping fa-2x block`}><span className={`absolute ${position} top-4 text-red-600 text-base`}>{cart.length > 0 ? cart.length : null}</span></i></Link></li>
+                <li className='p-4 hover:bg-gray-400 relative'><Link to="/pay"><i className={`fa-solid fa-cart-shopping fa-2x block`}><span className={`absolute ${position} top-4 text-red-600 text-base hover:scale-110`}>{cart.length > 0 ? cart.length : null}</span></i></Link></li>
                 </ul>
               </div>
             <ul className={`bg-gray-800 md:flex  md:items-center md:w-auto ${linksClass} text-xl text-white-800 justify-between`}>
               <div className='lg:flex md:flex sm:block'>  
-                <li className='p-4 hover:bg-gray-400'><Link to="/"> Home </Link></li>
-                <li className='p-4 hover:bg-gray-400'><Link to="/Electronics">Electronics</Link></li>
-                <li className='p-4 hover:bg-gray-400'><Link to="/Clothing">Clothing</Link></li>
-                <li className='p-4 hover:bg-gray-400'><Link to="/Other">Other</Link></li>
+                <li className='p-4 ml-4 hover:bg-gray-400 hover:scale-110'><Link to="/"> Home </Link></li>
+                <li className='p-4 ml-4 hover:bg-gray-400 hover:scale-110'><Link to="/Electronics">Electronics</Link></li>
+                <li className='p-4 ml-4 hover:bg-gray-400 hover:scale-110'><Link to="/Clothing">Clothing</Link></li>
+                <li className='p-4 ml-4 hover:bg-gray-400 hover:scale-110'><Link to="/Other">Other</Link></li>
               </div>
             </ul>
         </nav>

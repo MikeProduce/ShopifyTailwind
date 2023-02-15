@@ -51,13 +51,13 @@ const AddPurchases = (product) => {
             <div className="p-2 justify-center">
               <img className='object-contain h-48 w-96 mx-auto object-center hover:opacity-75 hover:scale-110' src={item.itemImage} alt={item.itemName} />
             </div> 
-            <div className="p-2 w-full h-auto sm:w-1/2 lg:w-1/3 md:w-1/2">
-              <div>Product - {item.itemName}</div>
-              <div>Price - {item.itemPrice}</div>
-              <div>Quantity:{item.quantity}</div>
-              <div className='flex space-x-4'>
-                <Button onClick={() => purchaseHandler(item)}>Remove from cart</Button>
+              <div className="p-2 w-full h-auto sm:w-1/2 lg:w-1/3 md:w-1/2">
+                <div>Product - {item.itemName}</div>
+                <div>Price - {item.itemPrice}</div>
+                <div>Quantity:{item.quantity}</div>
+                <div className='flex space-x-4'>
                 <Button onClick={() => AddPurchases(item)}>Add to cart</Button>
+                <Button onClick={() => purchaseHandler(item)}>Remove from cart</Button>
               </div> 
             </div>
           </li>
@@ -65,9 +65,9 @@ const AddPurchases = (product) => {
       ))}
         <div className={`text-lg font-medium p-6 ${cartItems.length === 0 ? "block" : "hidden"}`}>Your Cart is empty</div>
         <div className="border-black border-2"></div>
-      <div className='flex justify-between flex-wrap mt-2'>
+        <div className='flex justify-between flex-wrap mt-2'>
         <div className='text-lg font-medium mb-2'>Subtotal ({cartItems.length} Items) ${total}</div>            
-      </div>
+    </div>
       {cartItems.length > 0 ? (<Form cartItems={cartItems} />) : null}
       </div>
     </div>

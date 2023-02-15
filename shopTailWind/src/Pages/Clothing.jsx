@@ -4,6 +4,8 @@ import { useDispatch, useSelector} from 'react-redux';
 import { addToCart } from '../app/cartSlice.jsx';
 import { Pagination } from '../components/Pagination.jsx';
 import { ProductCard } from '../components/ProductCard.jsx';
+import { Search } from '../components/Search.jsx';
+
  
 
 
@@ -21,6 +23,8 @@ export const Clothing = () => {
   const {products,cart,total} = useSelector((state) => state.cart)
   // this is read redux and im using it to update the state of each of these states.
   //which are the total price, what is currently in the cart 
+  const [filteredProducts, setFilteredProducts] = useState(products);
+  // Add this state to store the filtered products based on the search term
     
 
   
@@ -68,10 +72,15 @@ const Clothes = items.filter((Clothing) => {
   return (
     <div className="bg-white">
       <div className="mx-auto max-w-2xl py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
+      <div className="flex mb-4">
+        <Search products={Clothes} setFilteredProducts={setFilteredProducts} />
+      </div>
         <div className="grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
-          {currentPosts.map((product,index) => (
-          <ProductCard key={index} product={product} purchaseHandler={purchaseHandler} />
-          ))}
+        {Clothes.slice(firstPostIndex, lastPostIndex).map((electronics,index) => (
+          <ProductCard key={index} product={electronics} purchaseHandler={purchaseHandler} />
+          // here we are taking the firstpostIndex and the lastPostindex and only showing what is inbetween
+          // them and then we map through the results of the filteredProducts.
+        ))}
         </div>
         <Pagination totalPosts={Clothes.length} postsPerPage={postsPerPage} setCurrentPage={setCurrentPage} pageSelected={currentPage} />
       </div>

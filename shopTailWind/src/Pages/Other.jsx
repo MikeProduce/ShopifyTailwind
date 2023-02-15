@@ -4,6 +4,8 @@ import { useDispatch, useSelector} from 'react-redux';
 import { addToCart } from '../app/cartSlice.jsx';
  import { Pagination } from '../components/Pagination.jsx';
  import { ProductCard } from '../components/ProductCard.jsx';
+ import { Search } from '../components/Search.jsx';
+
 
 
 
@@ -20,6 +22,8 @@ export const Other = () => {
   //is the page we start on which one 
   const [postsPerPage,setPostsperPage] = useState(8);
   // this is the amount of items that are allowed per page 
+  const [filteredProducts, setFilteredProducts] = useState(products);
+  // Add this state to store the filtered products based on the search term
     
 
   
@@ -63,9 +67,14 @@ const currentPosts = Others.slice(firstPostIndex, lastPostIndex);
   return (
     <div className="bg-white">
       <div className="mx-auto max-w-2xl py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
+      <div className="flex mb-4">
+        <Search products={products} setFilteredProducts={setFilteredProducts} />
+      </div>
       <div className="grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
-        {currentPosts.map((product,index) => (
-          <ProductCard key={index} product={product} purchaseHandler={purchaseHandler} />
+      {Others.slice(firstPostIndex, lastPostIndex).map((electronics,index) => (
+          <ProductCard key={index} product={electronics} purchaseHandler={purchaseHandler} />
+          // here we are taking the firstpostIndex and the lastPostindex and only showing what is inbetween
+          // them and then we map through the results of the filteredProducts.
         ))}
       </div>
       <Pagination totalPosts={Others.length} postsPerPage={postsPerPage} setCurrentPage={setCurrentPage} pageSelected={currentPage} />
