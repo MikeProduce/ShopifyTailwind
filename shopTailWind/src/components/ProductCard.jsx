@@ -11,7 +11,7 @@ export const ProductCard = ({ product, purchaseHandler }) => {
     <div class="w-full bg-white shadow-md rounded-xl  hover:shadow-xl">
       <a href="#">
         <img src={product.thumbnail}
-          alt="Product" class="h-72 object-cover rounded-t-xl" />
+          alt="Product" class="w-full h-[13em] object-cover rounded-t-xl" />
         <div class="px-4 py-3 w-full">
           <span class="text-gray-400 mr-3 uppercase text-xs">{product.brand}</span>
           <p class="text-lg font-bold text-black truncate block capitalize">{product.title}</p>

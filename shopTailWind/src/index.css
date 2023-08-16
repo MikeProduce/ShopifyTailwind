@@ -2,9 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-    font-family: "Montserrat", sans-serif;
-}
 
 .slide-in {
     transform: translateY(0);
