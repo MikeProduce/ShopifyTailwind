@@ -9,7 +9,7 @@ import { Navbar } from './components/Navbar.jsx'
 import { Footer } from './components/Footer.jsx'
 import { BoughtItem } from './components/BoughtItem.jsx'
 import { CheckOrder } from './Pages/CheckOrder.jsx'
-import { Login } from './Pages/Login.jsx'
+import { Login } from './Pages/Login/Login.jsx'
 import { SignUp } from './Pages/SignUp/SignUp.jsx'
 
 

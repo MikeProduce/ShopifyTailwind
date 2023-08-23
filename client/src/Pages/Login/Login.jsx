@@ -1,9 +1,8 @@
-
-import { Link } from "react-router-dom"
 import { Input } from "../../components/Input"
 import { useLoginForm } from "../Login/formValidation"
+import { Link } from "react-router-dom"
 
-export const SignUp = () => {
+export const Login = () => {
     const { formik, error, loading } = useLoginForm()
 
     return (
@@ -12,13 +11,13 @@ export const SignUp = () => {
                 <div className="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
                     <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
                         <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
-                            Create and account
+                            Sign in to your account
                         </h1>
-                        <form className="space-y-4 md:space-y-6" onSubmit={formik.handleSubmit} >
-                            {
-                                error &&
-                                <div className="text-red-500">{error.message}</div>
-                            }
+                        {
+                            error &&
+                            <div className="text-red-500">{error.message}</div>
+                        }
+                        <form className="space-y-4 md:space-y-6" onSubmit={formik.handleSubmit}>
                             <Input
                                 label="Email"
                                 type="email"
@@ -55,9 +54,12 @@ export const SignUp = () => {
                                 onChange={formik.handleChange}
                                 error={formik.errors.confirmPassword}
                             />
-                            <button type="submit" disabled={formik.isSubmitting} className="w-full text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">Create an account</button>
+                            <div className="flex items-center justify-between">
+                                <a href="#" className="text-sm font-medium text-primary-600 hover:underline dark:text-primary-500">Forgot password?</a>
+                            </div>
+                            <button type="submit" disabled={formik.isSubmitting} className="w-full text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">Sign in</button>
                             <p className="text-sm font-light text-gray-500 dark:text-gray-400">
-                                Already have an account? <Link to="/Login" className="font-medium text-primary-600 hover:underline dark:text-primary-500">Login here</Link>
+                                Don’t have an account yet? <Link to="/SignUp" className="font-medium text-primary-600 hover:underline dark:text-primary-500">Sign up</Link>
                             </p>
                         </form>
                     </div>
@@ -67,4 +69,4 @@ export const SignUp = () => {
     )
 }
 
-export default SignUp
+export default Login
