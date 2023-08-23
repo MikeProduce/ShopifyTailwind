@@ -1,7 +1,7 @@
 import React from 'react'
 import { createBrowserRouter, createRoutesFromElements, Route, Link, Outlet, RouterProvider } from 'react-router-dom'
 import { Home } from './Pages/home.jsx'
-import { Pay } from './Pages/Pay.jsx'
+import Pay from "./Pages/Pay.jsx";
 import { Clothing } from './Pages/Clothing'
 import { Other } from './Pages/Other'
 import { Electronics } from './Pages/Electronics'
