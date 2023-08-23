@@ -1,7 +1,7 @@
 import React from 'react'
 import { createBrowserRouter, createRoutesFromElements, Route, Link, Outlet, RouterProvider } from 'react-router-dom'
 import { Home } from './Pages/home.jsx'
-import { Pay } from './Pages/pay.jsx'
+import { Pay } from './Pages/Pay.jsx'
 import { Clothing } from './Pages/Clothing'
 import { Other } from './Pages/Other'
 import { Electronics } from './Pages/Electronics'
@@ -10,6 +10,7 @@ import { Footer } from './components/Footer.jsx'
 import { BoughtItem } from './components/BoughtItem.jsx'
 import { CheckOrder } from './Pages/CheckOrder.jsx'
 import { Login } from './Pages/Login.jsx'
+import { SignUp } from './Pages/SignUp/SignUp.jsx'
 
 
 
@@ -25,6 +26,7 @@ function App() {
         <Route path="/Other" element={<Other />} />
         <Route path="/Electronics" element={<Electronics />} />
         <Route path="/Login" element={<Login />} />
+        <Route path="/SignUp" element={<SignUp />} />
       </Route>
     )
   )

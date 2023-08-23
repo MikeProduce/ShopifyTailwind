@@ -8,7 +8,7 @@ export const ProductCard = ({ product, purchaseHandler }) => {
 
 
   return (
-    <div class="w-full bg-white shadow-md rounded-xl  hover:shadow-xl">
+    <div class="w-full bg-white shadow-md rounded-xl border hover:shadow-xl">
       <a href="#">
         <img src={product.thumbnail}
           alt="Product" class="w-full h-[13em] object-cover rounded-t-xl" />
