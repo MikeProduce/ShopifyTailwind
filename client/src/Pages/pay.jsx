@@ -73,3 +73,5 @@ export const Pay = () => {
     </div>
   )
 }
+
+export default Pay
