@@ -1,0 +1,28 @@
+# Ignore virtual environment
+venv/
+
+# Ignore IDE-specific files
+.vscode/
+.idea/
+
+# Ignore compiled Python files
+*.pyc
+__pycache__/
+
+# Ignore database files
+db.sqlite
+
+# Ignore logs and temporary files
+logs/
+tmp/
+
+# Ignore environment-specific files
+.env
+
+# Ignore dependency lock files
+requirements.txt.lock
+Pipfile.lock
+
+# Ignore system-specific files
+.DS_Store
+Thumbs.db
